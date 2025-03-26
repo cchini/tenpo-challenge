@@ -1,0 +1,36 @@
+{
+  "name": "@tenpo/app",
+  "scripts": {
+    "start": "webpack serve --port 9000 --env isLocal",
+    "test": "cross-env BABEL_ENV=test jest --passWithNoTests",
+    "build": "concurrently npm:build:*",
+    "build:webpack": "webpack --mode=production",
+    "build:types": "tsc"
+  },
+  "dependencies": {
+    "single-spa-layout": "3.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.3",
+    "@babel/plugin-transform-runtime": "^7.23.3",
+    "@babel/preset-env": "^7.23.3",
+    "@babel/preset-typescript": "^7.23.3",
+    "@babel/runtime": "^7.23.3",
+    "@types/systemjs": "^6.13.5",
+    "@types/webpack-env": "^1.18.5",
+    "concurrently": "^6.2.1",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.5",
+    "html-webpack-plugin": "^5.6.0",
+    "pretty-quick": "^3.1.1",
+    "serve": "^13.0.0",
+    "single-spa": "^6.0.1",
+    "ts-config-single-spa": "^3.0.0",
+    "typescript": "^4.3.5",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-config-single-spa-ts": "^4.0.0",
+    "webpack-dev-server": "^4.0.0"
+  },
+  "types": "dist/tenpo-app.d.ts"
+}

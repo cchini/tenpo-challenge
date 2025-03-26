@@ -1,0 +1,14 @@
+{
+  "extends": ["./config/biome.json"],
+  "files": {
+    "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/*.json"],
+    "ignore": [
+      ".gitignore",
+      "**/node_modules/**",
+      "**/dist/**",
+      "docs/.next/**",
+      "coverage",
+      "pnpm-lock.yaml"
+    ]
+  }
+}
