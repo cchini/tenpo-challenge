@@ -1,0 +1,6 @@
+{
+  "authentication-error": {
+    "title": "Error de autenticación",
+    "description": "No hemos podido autenticar el ingreso al sistema. Intenta nuevamente y si el error persiste contacta a nuestro equipo de soporte."
+  }
+}

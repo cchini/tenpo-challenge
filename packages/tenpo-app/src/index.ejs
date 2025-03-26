@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" type="image/x-icon" href="http://cdn.prod.website-files.com/647f4d1c528358bdb9d8ef3e/64e3a9895ae6bb28baef55e9_favicon.svg">
+  <title>Tenpo</title>
+  <script src="https://cdn.jsdelivr.net/npm/regenerator-runtime@0.13.7/runtime.min.js"></script>
+  <meta name="importmap-type" content="systemjs-importmap" />
+  <script type="systemjs-importmap">
+    {
+      "imports": {
+        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@6.0.1/lib/es2015/system/single-spa.min.js",
+        "single-spa-react": "https://cdn.jsdelivr.net/npm/single-spa-react@6.0.2/lib/system/single-spa-react.min.js",
+        "react": "https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js",
+        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js",
+        "rxjs": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/es2015/rxjs.min.js",
+        "rxjs/operators": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs/system/es2015/rxjs-operators.min.js"
+      }
+    }
+  </script>
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@6.0.1/lib/es2015/system/single-spa.min.js" as="script">
+  <% if (isLocal) { %>
+    <script id="dev-import-map-overrides" >
+      var script = document.createElement('script');
+      script.setAttribute('type', 'systemjs-importmap');
+      const featureAppData = JSON.parse('<%= FEATURE_APP_DATA %>');
+      const devHost = '<%= HOST_DEV %>';     
+      const overrides = {
+        "@tenpo/app": `//${devHost}:9000/tenpo-app.js`,
+        "@tenpo/states": `//${devHost}:9080/main.js`,    
+        "@tenpo/utils": `//${devHost}:9081/main.js`,
+        "@tenpo/services": `//${devHost}:9082/main.js`,
+        "@tenpo/errors": `//${devHost}:9083/main.js`,
+      }
+      Object.entries(featureAppData).forEach(([appName, portNumber]) => {
+        overrides[`@tenpo/${appName}`] = `http://${devHost}:${portNumber}/main.js`
+      });
+      script.innerHTML = JSON.stringify({
+        imports: overrides
+      });
+      document.querySelector('#dev-import-map-overrides').after(script);
+    </script>
+  <% } %>
+  <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script>
+  <% if (isLocal) { %>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.js"></script>
+  <% } else { %>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>
+  <% } %>
+</head>
+<body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <script>
+    System.import('@tenpo/app');
+  </script>
+  <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
+</body>
+</html>

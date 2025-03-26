@@ -1,0 +1,12 @@
+<single-spa-router>
+  <main>
+    <route path="/login">
+      <application name="@tenpo/login"></application>
+    </route>
+    <route path="/home">
+      <application name="@tenpo/header"></application>
+      <application name="@tenpo/home"></application>
+      <application name="@tenpo/errors"></application>
+    </route>
+  </main>
+</single-spa-router>
