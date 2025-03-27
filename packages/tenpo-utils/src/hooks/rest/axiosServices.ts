@@ -1,6 +1,7 @@
 import axios, { type AxiosResponse } from 'axios';
 import type { AxiosCall } from './useFetchAndLoad';
 import { loadAbort } from '../../utils/rest/loadAbort';
+import { getStorageToken } from '@tenpo/states';
 
 /**
  * Axios Get
@@ -14,18 +15,19 @@ export const get = <T>(
   api: string,
   headers = {},
   params = {},
-  abort = false
+  abort = false,
 ): AxiosCall<T> => {
   const controller = loadAbort();
-
   if (abort) controller.abort();
-
+  const token = getStorageToken();
   const call: Promise<AxiosResponse<T>> = axios.get<T>(api, {
-    headers,
+    headers: {
+      ...headers,
+      Authorization: token ? `Bearer ${token}` : '',
+    },
     params,
     signal: controller.signal,
   });
-
   return {
     call,
     controller,
@@ -46,14 +48,16 @@ export const post = <T>(
   headers = {},
   data = {},
   params = {},
-  abort = false
+  abort = false,
 ): AxiosCall<T> => {
   const controller = loadAbort();
-
   if (abort) controller.abort();
-
+  const token = getStorageToken();
   const call: Promise<AxiosResponse<T>> = axios.post<T>(api, data, {
-    headers,
+    headers: {
+      ...headers,
+      Authorization: token ? `Bearer ${token}` : '',
+    },
     params,
     signal: controller.signal,
   });

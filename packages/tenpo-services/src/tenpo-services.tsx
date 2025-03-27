@@ -1,9 +1,11 @@
-import { user } from './domains/identity/collections/user/userServices';
+import { account } from './domains/identity/userServices';
+import { login, logout } from './domains/identity/loginServices';
 
 const identity = {
-  user: {
-    user,
-  },
+  login,
+  logout,
+  account,
 };
 
 export { identity };
+export type { UserLogin } from './domains/identity/loginServices';

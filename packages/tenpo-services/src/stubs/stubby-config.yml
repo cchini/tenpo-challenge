@@ -1,0 +1,32 @@
+
+- request:
+    url: /identity.dev.tenpo.cl/api/account
+    method: GET
+  response:
+    - status: 200
+      latency: 500
+      headers:
+        content-type: application/json
+      file: ./identity/user/account-200.json
+
+- request:
+    url: /identity.dev.tenpo.cl/api/login
+    method: POST
+    post: >
+      {"user":"user@tenpo.cl","password":"user1234"}
+  response:
+    - status: 200
+      latency: 500
+      headers:
+        content-type: application/json
+      file: ./identity/login/login-200.json
+
+- request:
+    url: /identity.dev.tenpo.cl/api/login
+    method: POST
+  response:
+    - status: 401
+      latency: 500
+      headers:
+        content-type: application/json
+      file: ./identity/login/login-401.json
