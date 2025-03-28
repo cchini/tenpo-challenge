@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "OpenSans";
+  font-style: normal;
+  font-weight: 400;
+  src: local("OpenSans"), local("OpenSans-Regular"),
+    url("../fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "OpenSans";
+  font-style: normal;
+  font-weight: 500;
+  src: local("Roboto Medium"), local("OpenSans-Medium"),
+    url("../fonts/OpenSans/OpenSans-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "OpenSans";
+  font-style: normal;
+  font-weight: 700;
+  src: local("OpenSans ExtraBold"), local("OpenSans-ExtraBold"),
+    url("../fonts/OpenSans/OpenSans-ExtraBold.ttf") format("truetype");
+}

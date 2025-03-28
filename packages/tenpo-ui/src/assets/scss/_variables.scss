@@ -1,0 +1,39 @@
+$font-stack: "Open Sans", sans-serif;
+
+$lineHeight: 1.15;
+
+$breakpoints: (
+  md: 992px,
+);
+
+$fonts: (
+  thin: 100,
+  light: 300,
+  regular: 400,
+  medium: 500,
+  bold: 700,
+  black: 900,
+);
+
+$sizeText: (
+  30: 1.875rem,
+  28: 1.75rem,
+  24: 1.5rem,
+  22: 1.375rem,
+  18: 1.125rem,
+  16: 1rem,
+  14: 0.875rem,
+  12: 0.75rem,
+  10: 0.625rem,
+  8: 0.5rem,
+);
+
+$colors: (
+  transparent: transparent,
+  tenpo-white: #ffffff,
+  tenpo-black: #000000,
+  tenpo-green-10: #97fdb4,
+  tenpo-green-30: #5cffc4,
+  tenpo-green-50: #03ff94,
+  tenpo-green-70: #19d3c3,
+);

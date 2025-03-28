@@ -1,0 +1,28 @@
+@use "./variables" as *;
+
+@mixin flex($justify, $align: flex-start) {
+  display: flex;
+  justify-content: $justify;
+  align-items: #{$align};
+}
+
+@mixin font-style($size, $color, $weight: regular) {
+  font-family: $font-stack;
+  font-size: map-get($sizeText, $size);
+  color: var(--color-#{$color});
+  font-weight: map-get($fonts, #{$weight});
+}
+
+@mixin box($bg, $radius, $border: none) {
+  @if ($bg == transparent) {
+    background: $bg;
+  } @else {
+    background: map-get($colors, $bg);
+  }
+  @if ($border == "none") {
+    border: $border;
+  } @else if ($border != "none") {
+    border: map-get($borders, md) solid map-get($colors, $border);
+  }
+  border-radius: $radius;
+}
