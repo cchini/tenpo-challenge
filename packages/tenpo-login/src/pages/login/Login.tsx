@@ -7,7 +7,7 @@ export default function Login() {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    identity.login({ user: '', password: '' });
+    identity.login({ user: 'user@tenpo.cl', password: 'user1234' });
   };
 
   useEffect(() => {
