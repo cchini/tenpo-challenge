@@ -1,6 +1,11 @@
 const { merge } = require('webpack-merge');
 const singleSpaDefaults = require('webpack-config-single-spa-react-ts');
 const path = require('path');
+const webpack = require('webpack');
+const dotenv = require('dotenv');
+
+// this will update the process.env with environment variables in .env file
+dotenv.config();
 
 module.exports = (webpackConfigEnv, argv) => {
   const defaultConfig = singleSpaDefaults({
@@ -9,7 +14,7 @@ module.exports = (webpackConfigEnv, argv) => {
     webpackConfigEnv,
     argv,
   });
-
+  const isProd = argv.mode === 'production';
   return merge(defaultConfig, {
     devServer: {
       port: 9080,
@@ -38,5 +43,10 @@ module.exports = (webpackConfigEnv, argv) => {
       filename: 'main.js',
       clean: true,
     },
+    plugins: [
+      new webpack.DefinePlugin({
+        process: { env: JSON.stringify(process.env) },
+      }),
+    ].concat(isProd ? [new MiniCssExtractPlugin()] : []),
   });
 };

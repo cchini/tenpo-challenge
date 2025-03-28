@@ -23,7 +23,7 @@ const usePermissions = (permissions: string[]) => {
           return paths.find((value) => value.path === HomePaths.Update);
       }
     };
-    permissions.forEach((value) => {
+    permissions?.forEach((value) => {
       validPaths.push(switchPath(value));
     });
     return validPaths;

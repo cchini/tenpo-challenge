@@ -24,13 +24,7 @@ const useFetchAndLoad = () => {
     if (controller) controller.abort();
   };
 
-  useEffect(() => {
-    return () => {
-      cancelEndpoint();
-    };
-  });
-
-  return { callEndpoint };
+  return { callEndpoint, cancelEndpoint };
 };
 
 export default useFetchAndLoad;
