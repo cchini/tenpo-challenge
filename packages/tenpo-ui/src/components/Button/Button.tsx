@@ -4,19 +4,28 @@ import css from './button.module.scss';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'ghost';
 
+/**
+ * ButtonProps defines the properties for the Button component.
+ */
 export interface ButtonProps
   extends React.DetailedHTMLProps<
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
-  /** Render content button */
+  /** The content to be rendered inside the button */
   children: ReactNode | string;
-  /** Overwrite className */
+  /** Custom class name for additional styling */
   className?: string;
-  /** Use the variant prop to change the visual style of the Button */
+  /** Defines the visual style of the button */
   variant?: ButtonVariant;
 }
 
+/**
+ * Button component
+ *
+ * A reusable button component that supports different variants and styles.
+ * It uses React.memo with a custom comparison function to avoid unnecessary re-renders.
+ */
 const Button: FC<ButtonProps> = React.memo(
   ({
     children,
@@ -27,6 +36,7 @@ const Button: FC<ButtonProps> = React.memo(
   }) => {
     return (
       <button
+        data-testid="tenpo-ui-button"
         className={cx(css.button, className, css[`button__${variant}`])}
         type={type}
         {...props}
@@ -35,6 +45,10 @@ const Button: FC<ButtonProps> = React.memo(
       </button>
     );
   },
+  /**
+   * Custom comparison function for React.memo to prevent unnecessary re-renders.
+   * It checks if the className, variant, type, and children have changed.
+   */
   (prevProps, nextProps) => {
     if (prevProps.className !== nextProps.className) return false;
     if (prevProps.variant !== nextProps.variant) return false;

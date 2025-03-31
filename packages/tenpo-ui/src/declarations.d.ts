@@ -1,3 +1,9 @@
+/* /// <reference types="@testing-library/jest-dom" /> */
+declare module '@testing-library/jest-dom' {
+  /*  const rawHtmlFile: string;
+  export = rawHtmlFile; */
+}
+
 declare module '*.html' {
   const rawHtmlFile: string;
   export = rawHtmlFile;

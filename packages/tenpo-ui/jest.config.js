@@ -1,11 +1,9 @@
 module.exports = {
   rootDir: './',
   testTimeout: 30000,
-
-  testEnvironment: 'jsdom',
+  testEnvironment: 'node',
   transform: {
-    '^.+\\.(ts|tsx)?$': 'babel-jest',
-    '^.+\\.(js|jsx)$': 'babel-jest',
+    '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest',
   },
   moduleNameMapper: {
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
@@ -13,8 +11,9 @@ module.exports = {
     '\\.module\\.(css|scss)$': '<rootDir>/node_modules/identity-obj-proxy',
     '\\.(css|scss|less)$': '<rootDir>/config/__mocks__/mock-styles.js',
   },
+  setupFilesAfterEnv: ['<rootDir>/setupTests.js'],
   setupFilesAfterEnv: [
-    '<rootDir>/jest-setup.js',
+    '<rootDir>/setupTests.js',
     '<rootDir>/node_modules/@testing-library/jest-dom/dist/index.js',
   ],
   coveragePathIgnorePatterns: [],

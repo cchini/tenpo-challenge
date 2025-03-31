@@ -55,6 +55,16 @@ module.exports = (webpackConfigEnv, argv) => {
     module: {
       rules: [
         {
+          test: /\.(js|jsx|ts|tsx)$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-react', '@babel/preset-env'],
+            },
+          },
+        },
+        {
           test: /\.(sa|sc)ss$/i,
           exclude: [path.resolve('./node_modules/')],
           use: [

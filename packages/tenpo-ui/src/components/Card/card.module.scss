@@ -7,17 +7,14 @@
   gap: map-get($spacing, xs);
   padding: 8px;
   width: 100%;
-
-  &_mainRow {
+  &_main {
     align-items: flex-start;
     column-gap: map-get($spacing, xs);
     display: flex;
-
-    .iconState {
+    .card_main__icon {
       flex-shrink: 0;
     }
   }
-
   &.card__error {
     @include box-style(red-50-10, 0.25rem);
     @include font-style(12, gray-100, regular);

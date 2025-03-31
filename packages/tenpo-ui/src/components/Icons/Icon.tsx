@@ -1,55 +1,64 @@
-import { FC } from 'react';
+import React, { FC, memo } from 'react';
 import { CHEVRON_RIGHT, CIRCLE_CROSS_FILL_PATH } from './svgIcons';
 
 export interface IconProps {
-  /** Overwrite className */
+  /** Custom class name for styling */
   className?: string;
-  /** Set color for icon */
+  /** Defines the icon color */
   color?: string;
-  /** Show the version filled of icon */
+  /** Displays the filled version of the icon */
   filled?: boolean;
-  /** Icon name */
+  /** Name of the icon to render */
   name: 'chevron-right' | 'circle-cross-fill';
-  /** Set size for the icon */
+  /** Defines the icon size */
   size?: number;
 }
 
-const Icon: FC<IconProps> = ({
-  size = 14,
-  className,
-  name,
-  color = 'white',
-}) => {
-  const searchIcon = () => {
-    let icon = '';
-    switch (name) {
-      case 'chevron-right':
-        icon = CHEVRON_RIGHT;
-        break;
-      case 'circle-cross-fill':
-        icon = CIRCLE_CROSS_FILL_PATH;
-        break;
-      default:
-        icon = CHEVRON_RIGHT;
-    }
-    return icon;
-  };
-
-  const iconSvg = searchIcon();
-
-  return (
-    <svg
-      data-testid="icon-test-id"
-      className={className}
-      dangerouslySetInnerHTML={{
-        __html: iconSvg.replace(/fill="[^"]*"/g, `fill="var(--tenpo-gray-50)"`),
-      }}
-      height={size}
-      width={size}
-      fill="none"
-      viewBox="0 0 16 16"
-    />
-  );
+/**
+ * Mapping of available icons to their respective SVG paths.
+ */
+const ICONS_MAP: Record<IconProps['name'], string> = {
+  'chevron-right': CHEVRON_RIGHT,
+  'circle-cross-fill': CIRCLE_CROSS_FILL_PATH,
 };
+
+/**
+ * Icon component that renders an SVG based on the provided icon name.
+ * The component is optimized using React.memo to prevent unnecessary re-renders.
+ *
+ * @component
+ * @example
+ * ```tsx
+ * <Icon name="chevron-right" size={16} className="custom-class" />
+ * ```
+ *
+ * @param {IconProps} props - The properties of the Icon component.
+ * @returns {JSX.Element} Rendered SVG icon.
+ */
+const Icon: FC<IconProps> = memo(
+  ({ size = 14, className, name }) => {
+    const iconSvg = ICONS_MAP[name] || CHEVRON_RIGHT;
+
+    return (
+      <svg
+        data-testid="icon-test-id"
+        className={className}
+        height={size}
+        width={size}
+        fill="none"
+        viewBox="0 0 16 16"
+        dangerouslySetInnerHTML={{
+          __html: iconSvg.includes('fill="')
+            ? iconSvg.replace(/fill="[^"]*"/g, `fill="var(--tenpo-gray-50)"`)
+            : iconSvg,
+        }}
+      />
+    );
+  },
+  (prevProps, nextProps) =>
+    prevProps.className === nextProps.className &&
+    prevProps.size === nextProps.size &&
+    prevProps.name === nextProps.name,
+);
 
 export default Icon;

@@ -4,10 +4,11 @@
     "jsx": "react-jsx",
     "declaration": true,
     "declarationDir": "dist",
-    "emitDeclarationOnly": true
+    "emitDeclarationOnly": true,
+    "types": ["jest"]
   },
   "files": ["src/tenpo-ui.tsx"],
   "include": ["src/**/*"],
-  "exclude": ["src/**/*.test*"],
+  "exclude": ["**/*.test.tsx"],
   "plugins": [{ "name": "typescript-plugin-css-modules" }]
 }
