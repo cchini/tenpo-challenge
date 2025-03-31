@@ -1,5 +1,9 @@
 import React, { FC, memo } from 'react';
-import { CHEVRON_RIGHT, CIRCLE_CROSS_FILL_PATH } from './svgIcons';
+import {
+  CHEVRON_RIGHT,
+  CIRCLE_CROSS_FILL_PATH,
+  USER_FILL_PATH,
+} from './svgIcons';
 
 export interface IconProps {
   /** Custom class name for styling */
@@ -9,7 +13,7 @@ export interface IconProps {
   /** Displays the filled version of the icon */
   filled?: boolean;
   /** Name of the icon to render */
-  name: 'chevron-right' | 'circle-cross-fill';
+  name: 'chevron-right' | 'circle-cross-fill' | 'user-fill';
   /** Defines the icon size */
   size?: number;
 }
@@ -20,6 +24,7 @@ export interface IconProps {
 const ICONS_MAP: Record<IconProps['name'], string> = {
   'chevron-right': CHEVRON_RIGHT,
   'circle-cross-fill': CIRCLE_CROSS_FILL_PATH,
+  'user-fill': USER_FILL_PATH,
 };
 
 /**

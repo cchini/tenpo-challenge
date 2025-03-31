@@ -58,4 +58,5 @@ export const login = async (data: UserLogin) => {
  */
 export const logout = () => {
   logoutStates(); // Logging out the user by clearing their session.
+  window.location.reload();
 };
