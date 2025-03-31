@@ -1,0 +1,87 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixin";
+
+.login {
+  background-color: var(--tenpo-gray-900);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  &_content {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    .box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: var(--tenpo-gray-800);
+      border-radius: 8px;
+      width: 420px;
+      min-height: 380px;
+      padding: 14px;
+      &_input {
+        max-width: 320px;
+        margin: 8px 0;
+        &.box_input__logo {
+          margin: 16px 0 24px 0;
+        }
+        &.box_input__btn {
+          margin: 12px 0 14px 0;
+        }
+      }
+      &_footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 320px;
+        width: 100%;
+        @include font-style(14, gray-50, medium);
+        margin: 24px 0 0;
+
+        .lang {
+          display: flex;
+          align-items: baseline;
+        }
+        &.box_footer__space {
+          margin: 0 8px;
+        }
+        &.box_footer__link {
+          cursor: pointer;
+          text-decoration: none;
+          &:hover {
+            @include font-style(14, green-70, medium);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: map-get($breakpoints, md )) {
+  .login {
+    &_content {
+      .box {
+        width: 70%;
+        margin: 8px;
+        padding: 12px;
+      }
+    }
+  }
+}
+
+@media (max-width: map-get($breakpoints, sm )) {
+  .login {
+    &_content {
+      .box {
+        width: 100%;
+        margin: 4px;
+        padding: 8px;
+      }
+    }
+  }
+}

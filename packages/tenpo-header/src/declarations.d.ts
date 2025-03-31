@@ -67,3 +67,11 @@ declare module '*.module.styl' {
   const classes: { [key: string]: string };
   export default classes;
 }
+
+declare module '@tenpo/services' {
+  export const identity: {
+    login: (data: any) => void;
+    logout: () => void;
+    account: () => void;
+  };
+}

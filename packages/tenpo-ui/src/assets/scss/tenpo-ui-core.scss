@@ -1,6 +1,7 @@
-@forward "./variables";
-@forward "./mixin";
+@import "./variables";
+@import "./mixin";
 
 @import "./normalize";
 @import "./fonts";
 @import "./grid";
+@import "./theme";
