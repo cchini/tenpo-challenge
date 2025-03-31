@@ -1,0 +1,28 @@
+@import "./variables";
+
+@mixin flex($justify, $align: flex-start) {
+  display: flex;
+  justify-content: $justify;
+  align-items: #{$align};
+}
+
+@mixin font-style($size, $color, $weight: regular) {
+  font-family: $font-stack;
+  font-size: map-get($sizeText, $size);
+  color: var(--tenpo-#{$color});
+  font-weight: map-get($fonts, #{$weight});
+}
+
+@mixin box-style($bg, $radius, $border: none) {
+  @if ($bg == transparent) {
+    background-color: transparent;
+  } @else {
+    background-color: var(--tenpo-#{$bg});
+  }
+  @if ($border == "none") {
+    border: $border;
+  } @else if ($border != "none") {
+    border: 1px solid var(--tenpo-#{$border});
+  }
+  border-radius: $radius;
+}

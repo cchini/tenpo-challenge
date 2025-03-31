@@ -33,6 +33,7 @@
         "@tenpo/utils": `//${devHost}:9081/main.js`,
         "@tenpo/services": `//${devHost}:9082/main.js`,
         "@tenpo/errors": `//${devHost}:9083/main.js`,
+        "@tenpo/ui": `//${devHost}:9084/main.js`,
       }
       Object.entries(featureAppData).forEach(([appName, portNumber]) => {
         overrides[`@tenpo/${appName}`] = `http://${devHost}:${portNumber}/main.js`

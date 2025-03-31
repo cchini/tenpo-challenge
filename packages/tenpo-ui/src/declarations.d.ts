@@ -1,3 +1,9 @@
+/* /// <reference types="@testing-library/jest-dom" /> */
+declare module '@testing-library/jest-dom' {
+  /*  const rawHtmlFile: string;
+  export = rawHtmlFile; */
+}
+
 declare module '*.html' {
   const rawHtmlFile: string;
   export = rawHtmlFile;
@@ -66,12 +72,4 @@ declare module '*.module.less' {
 declare module '*.module.styl' {
   const classes: { [key: string]: string };
   export default classes;
-}
-
-declare module '@tenpo/services' {
-  export const identity: {
-    login: (data: any) => void;
-    logout: () => void;
-    account: () => void;
-  };
 }

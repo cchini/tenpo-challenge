@@ -37,7 +37,6 @@ export const login = async (data: UserLogin) => {
       false,
     );
     const response = await callEndpoint(call);
-
     // If the login is successful, store the token in the state.
     if (response.status === 200) {
       loginStates(response.data.token);
@@ -45,10 +44,12 @@ export const login = async (data: UserLogin) => {
       // If the login fails, log the user out.
       logoutStates();
     }
+    return response;
   } catch (error) {
     // In case of an error, log the user out and log the error.
     logoutStates();
     console.debug('ERROR', error);
+    return error;
   }
 };
 

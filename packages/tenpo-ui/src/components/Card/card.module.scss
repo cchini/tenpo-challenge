@@ -1,0 +1,22 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixin";
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: map-get($spacing, xs);
+  padding: 8px;
+  width: 100%;
+  &_main {
+    align-items: flex-start;
+    column-gap: map-get($spacing, xs);
+    display: flex;
+    .card_main__icon {
+      flex-shrink: 0;
+    }
+  }
+  &.card__error {
+    @include box-style(red-50-10, 0.25rem);
+    @include font-style(12, gray-100, regular);
+  }
+}

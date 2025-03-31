@@ -1,5 +1,5 @@
 // Define common application modules
-const APP_BASE_MODULES = ['app', 'states', 'utils', 'services', 'errors'];
+const APP_BASE_MODULES = ['app', 'states', 'utils', 'services', 'errors', 'ui'];
 
 // Define application ports
 const APP_PORTS = {

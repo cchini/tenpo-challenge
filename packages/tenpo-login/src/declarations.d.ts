@@ -69,8 +69,31 @@ declare module '*.module.styl' {
 }
 
 declare module '@tenpo/services' {
+  // Define the types for UserLogin and AxiosCall (if not already defined elsewhere)
+  export interface UserLogin {
+    user: string;
+    password: string;
+  }
+
+  // AxiosCall is typically a generic type, you need to define it (this is a simple example).
+  export type AxiosCall<T> = (
+    url: string,
+    headers: object,
+    data: object,
+    params: object,
+    withCredentials: boolean,
+  ) => Promise<T>;
+
+  // Define the structure of the response from the API call (customize based on your needs).
+  export interface ApiResponse {
+    status: number;
+    data: {
+      token: string;
+    };
+  }
+
   export const identity: {
-    login: (data: any) => void;
+    login: (data: UserLogin) => Promise<number | any>;
     logout;
     account: () => void;
   };
@@ -79,6 +102,7 @@ declare module '@tenpo/services' {
 declare module '@tenpo/states' {
   export const identity$;
   export const account$;
+  export const preferences$;
   export const setUrlApi;
   export const loginStates;
   export const logoutStates;
@@ -87,10 +111,31 @@ declare module '@tenpo/states' {
   export const getToken;
   export const getStorageToken;
   export const getStorageLocale;
+  export const setLocaleUser;
   export interface AccountState {
     user: string;
     usename: string;
     email: string;
     permissions: string[];
   }
+}
+
+declare module '@tenpo/ui' {
+  export const Button;
+  export const Input;
+  export const Icon;
+  export const Card;
+}
+
+declare module '@tenpo/utils' {
+  export const eventHandlers: {
+    useDebounce: <T>(
+      initialValue: T,
+      delay?: number,
+    ) => {
+      value: T;
+      setValue: React.Dispatch<React.SetStateAction<T>>;
+      debouncedValue: T;
+    };
+  };
 }
