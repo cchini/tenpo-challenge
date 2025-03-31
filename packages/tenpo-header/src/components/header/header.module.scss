@@ -1,0 +1,54 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixin";
+
+.tenpoHeader {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  background: var(--tenpo-gray-900);
+  box-shadow: var(--shadow-elevate);
+  height: 60px;
+  margin: 0;
+  &_logo {
+    height: 50px;
+    margin: 0 0 0 18px;
+    object-fit: contain;
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    justify-content: space-between;
+    gap: map-get($spacing, sm);
+    flex: 1;
+    &.tenpoHeader_logo__img {
+      height: 100%;
+      max-width: 100%;
+      object-fit: inherit;
+    }
+  }
+  &_avatar {
+    min-width: 50px;
+    background: transparent;
+    cursor: pointer;
+    height: 100%;
+    outline: none;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 18px 0;
+
+    .content {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background-color: var(--tenpo-gray-400);
+      border-radius: 50%;
+    }
+  }
+}
