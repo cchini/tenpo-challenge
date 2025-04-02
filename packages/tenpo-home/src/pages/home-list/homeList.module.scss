@@ -1,0 +1,16 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixin";
+
+.homeList {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  top: 60px;
+  margin: 60px 0;
+
+  &_content {
+    width: 90%;
+    margin: 40px 0;
+  }
+}

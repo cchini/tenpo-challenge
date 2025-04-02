@@ -12,10 +12,12 @@
     "coverage": "cross-env BABEL_ENV=test jest --coverage"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.71.1",
     "classnames": "^2.5.1",
     "dayjs": "^1.11.12",
     "i18next": "^23.11.5",
     "react-i18next": "^14.1.2",
+    "react-loading": "^2.0.3",
     "react-router-dom": "^6.26.0",
     "zustand": "^4.5.2"
   },

@@ -1,6 +1,7 @@
 {
   "extends": "ts-config-single-spa",
   "compilerOptions": {
+    "lib": ["es2019", "dom"],
     "jsx": "react-jsx",
     "declaration": true,
     "declarationDir": "dist",

@@ -1,25 +1,27 @@
 import { useEffect, useState } from 'react';
 
 /**
- * A custom React hook that detects whether the application is being viewed on a mobile screen or not.
- * It uses the `window.matchMedia` API to check the maximum width of the viewport.
+ * Custom React hook to detect whether the application is being viewed on a mobile screen.
+ * Uses `window.matchMedia` to check viewport width.
  *
- * @returns An object containing the `isMobile` boolean value indicating whether the application is being viewed on a mobile screen or not.
+ * @returns { isMobile: boolean } - Boolean indicating if the screen is mobile.
  */
 export const useIsMobile = () => {
-  const [isMobile, setIsMobile] = useState(false);
+  const getIsMobile = () =>
+    typeof window !== 'undefined' &&
+    window.matchMedia('(max-width: 992px)').matches;
+
+  const [isMobile, setIsMobile] = useState(getIsMobile);
 
   useEffect(() => {
-    const matchMedia = window.matchMedia('(max-width: 992px)');
-    setIsMobile(matchMedia.matches);
+    if (typeof window === 'undefined') return; // Protección SSR
 
+    const matchMedia = window.matchMedia('(max-width: 992px)');
     const updateIsMobile = (e: MediaQueryListEvent) => setIsMobile(e.matches);
 
     matchMedia.addEventListener('change', updateIsMobile);
     return () => matchMedia.removeEventListener('change', updateIsMobile);
   }, []);
 
-  return {
-    isMobile,
-  };
+  return { isMobile };
 };
