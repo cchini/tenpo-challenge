@@ -2,5 +2,10 @@
   "authentication-error": {
     "title": "Error de autenticación",
     "description": "No hemos podido autenticar el ingreso al sistema. Intenta nuevamente y si el error persiste contacta a nuestro equipo de soporte."
+  },
+  "access-denied": {
+    "title": "Acceso Denegado",
+    "description": "¡Ups! No tienes permiso para ver esta página. Si crees que esto es un error, por favor contacta con soporte.",
+    "go-home": "Ir a Inicio"
   }
 }

@@ -2,5 +2,10 @@
   "authentication-error": {
     "title": "Authentication error",
     "description": "We were unable to authenticate your login to the system. Please try again, and if the error persists, contact our support team."
+  },
+  "access-denied": {
+    "title": "Access Denied",
+    "description": "Oops! You don’t have permission to view this page. If you think this is a mistake, please contact support.",
+    "go-home": "Go to Home"
   }
 }
