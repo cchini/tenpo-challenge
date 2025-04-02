@@ -1,0 +1,67 @@
+$font-stack: "Open Sans", sans-serif;
+
+$lineHeight: 1.15;
+
+$breakpoints: (
+  xs: 0px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+$spacing: (
+  xxs: 0.25rem,
+  xs: 0.5rem,
+  sm: 0.75rem,
+  md: 1rem,
+  lg: 1.25rem,
+  xl: 1.5rem,
+  xxl: 2rem,
+  xxxl: 2.75rem,
+);
+
+$fonts: (
+  thin: 100,
+  light: 300,
+  regular: 400,
+  medium: 500,
+  bold: 700,
+  black: 900,
+);
+
+$sizeText: (
+  30: 1.875rem,
+  28: 1.75rem,
+  24: 1.5rem,
+  22: 1.375rem,
+  18: 1.125rem,
+  16: 1rem,
+  14: 0.875rem,
+  12: 0.75rem,
+  10: 0.625rem,
+  8: 0.5rem,
+);
+
+$colors: (
+  transparent: transparent,
+  tenpo-white: #ffffff,
+  tenpo-black: #000000,
+  tenpo-gray-50: #f9f9f9,
+  tenpo-gray-100: #ececec,
+  tenpo-gray-200: #e3e3e3,
+  tenpo-gray-300: #cdcdcd,
+  tenpo-gray-400: #b4b4b4,
+  tenpo-gray-500: #9b9b9b,
+  tenpo-gray-600: #676767,
+  tenpo-gray-700: #424242,
+  tenpo-gray-750: #2f2f2f,
+  tenpo-gray-800: #212121,
+  tenpo-gray-900: #171717,
+  tenpo-gray-950: #0d0d0d,
+  tenpo-green-10: #97fdb4,
+  tenpo-green-30: #5cffc4,
+  tenpo-green-50: #03ff94,
+  tenpo-green-70: #19d3c3,
+);

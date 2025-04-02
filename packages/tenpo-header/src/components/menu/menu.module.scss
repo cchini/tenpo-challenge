@@ -7,9 +7,9 @@
   box-shadow: var(--shadow-elevate);
   overflow: hidden;
   position: absolute;
-  right: 20px;
+  right: 5%;
   top: 50px;
-  width: 324px;
+  width: 284px;
   margin: 8px 0;
   z-index: 1000;
 
@@ -48,13 +48,5 @@
       height: 44px;
       width: 100%;
     }
-  }
-}
-
-@media (max-width: 768px) {
-  .menu {
-    right: 8px;
-    width: 100%;
-    max-width: 324px;
   }
 }

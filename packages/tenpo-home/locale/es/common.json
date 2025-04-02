@@ -1,5 +1,9 @@
 {
-  "general": {
-    "example": "Ejemplo"
+  "home": {
+    "list": {
+      "table-header-name": "Nombre",
+      "table-header-email": "Correo",
+      "table-header-country": "País"
+    }
   }
 }

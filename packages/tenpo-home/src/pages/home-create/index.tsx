@@ -1,3 +1,3 @@
-import HomeList from './HomeList';
+import HomeList from './HomeCreate';
 
 export default HomeList;

@@ -1,0 +1,37 @@
+.tableList {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  thead {
+    position: sticky;
+    top: 59px;
+    background-color: var(--tenpo-gray-700);
+    color: white;
+    z-index: 6;
+  }
+  .tableList__avatar {
+    text-align: center;
+  }
+  th,
+  td {
+    padding: 12px;
+  }
+  th {
+    text-align: left;
+  }
+  tbody tr {
+    &:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+
+    &:hover {
+      background-color: #e9ecef;
+    }
+  }
+  img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+  }
+}
