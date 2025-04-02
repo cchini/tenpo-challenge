@@ -1,0 +1,9 @@
+{
+  "home": {
+    "list": {
+      "table-header-name": "Name",
+      "table-header-email": "Email",
+      "table-header-country": "Country"
+    }
+  }
+}

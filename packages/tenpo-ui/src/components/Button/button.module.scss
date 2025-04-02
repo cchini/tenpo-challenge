@@ -1,0 +1,39 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixin";
+
+.button {
+  @include box-style(green-50, 0.25rem);
+  @include flex(center, center);
+  @include font-style(14, gray-750, bold);
+  cursor: pointer;
+  fill: var(--tenpo-gray-50);
+  gap: map-get($spacing, xs);
+  min-height: 36px;
+  min-width: 120px;
+  width: 100%;
+  outline: none;
+  padding: map-get($spacing, xs) map-get($spacing, md);
+
+  &:active {
+    transform: scale(0.99);
+  }
+
+  &.button__secondary {
+    @include box-style(transparent, 0.25rem, green-50);
+    @include font-style(14, gray-200, bold);
+  }
+
+  &.button__ghost {
+    @include box-style(transparent, 0.25rem);
+    color: var(--tenpo-gray-700);
+    fill: var(--tenpo-gray-50);
+  }
+}
+
+@media (max-width: map-get($breakpoints, md )) {
+  .button {
+    font-size: map-get($sizeText, 16);
+    min-height: 48px;
+    padding: map-get($spacing, sm) map-get($spacing, md);
+  }
+}

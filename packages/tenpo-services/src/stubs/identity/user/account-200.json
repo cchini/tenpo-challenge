@@ -1,0 +1,6 @@
+{
+  "user": "Jhon Doe",
+  "usename": "Jhon Doe",
+  "email": "user@tenpo.cl",
+  "permissions": ["tenpo:home:list"]
+}

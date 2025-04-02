@@ -1,0 +1,10 @@
+{
+  "login": {
+    "enter-email": "Enter email",
+    "enter-password": "Enter password",
+    "button-login": "Log in",
+    "error-email": "Invalid email format",
+    "error-password": "Invalid email or password",
+    "forgot-password": "Forgot your password?"
+  }
+}

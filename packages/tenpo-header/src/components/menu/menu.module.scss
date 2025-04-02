@@ -1,0 +1,52 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixin";
+
+.menu {
+  background: var(--tenpo-gray-800);
+  border-radius: 8px;
+  box-shadow: var(--shadow-elevate);
+  overflow: hidden;
+  position: absolute;
+  right: 5%;
+  top: 50px;
+  width: 284px;
+  margin: 8px 0;
+  z-index: 1000;
+
+  &_header {
+    padding: map-get($spacing, md) map-get($spacing, md) 0;
+    @include font-style(14, gray-200, medium);
+
+    &.menu_header__bold {
+      @include font-style(16, gray-200, bold);
+    }
+    &.menu_header__divider {
+      margin: 0;
+      border-width: 0px 0px 1px 0px;
+      border-style: solid;
+      border-color: var(--tenpo-gray-600);
+      &:last-child {
+        margin-bottom: 20px;
+      }
+    }
+    .locale {
+      &__link {
+        cursor: pointer;
+        text-decoration: none;
+        &:hover {
+          @include font-style(14, green-70, medium);
+        }
+      }
+    }
+  }
+
+  &_logout {
+    padding: 0 map-get($spacing, sm) map-get($spacing, sm);
+
+    &.menu_logout__button {
+      font-size: map-get($sizeText, 16);
+      height: 44px;
+      width: 100%;
+    }
+  }
+}

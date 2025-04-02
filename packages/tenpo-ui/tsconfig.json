@@ -1,0 +1,14 @@
+{
+  "extends": "ts-config-single-spa",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "declaration": true,
+    "declarationDir": "dist",
+    "emitDeclarationOnly": true,
+    "types": ["jest"]
+  },
+  "files": ["src/tenpo-ui.tsx"],
+  "include": ["src/**/*"],
+  "exclude": ["**/*.test.tsx"],
+  "plugins": [{ "name": "typescript-plugin-css-modules" }]
+}

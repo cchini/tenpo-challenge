@@ -1,0 +1,184 @@
+// This grid use CSS Flexbox. To transform this grid in css use https://www.sassmeister.com/ <3
+@use "sass:math";
+@import "./variables";
+
+// Recommendation: math.div(100, $gridColumns) or calc(100 / $gridColumns)
+
+// Quantity columns
+$gridColumns: 12;
+
+// Breakpoints prefix
+$breakpointsPrefix: (
+  full: "",
+  md: "_md",
+);
+
+// Max width of content
+$maxWidth: 1440px;
+
+// Values for justify-content
+$justifyContent: (
+  around: space-around,
+  between: space-between,
+  center: center,
+  end: flex-end,
+  start: flex-start,
+);
+
+// Values for align-items and align-self
+$alignItems: (
+  baseline: baseline,
+  center: center,
+  end: flex-end,
+  start: flex-start,
+  stretch: stretch,
+);
+
+// Values for spacing
+$gridSpacing: (
+  full: 24px,
+  md: 16px,
+);
+
+// Calculates width column
+@function calculateWidth($columnNumber) {
+  @return math.div(100%, $gridColumns) * $columnNumber;
+}
+
+// Generate responsive spacing
+@mixin responsiveSpacing($colPrefix) {
+  @if $colPrefix == map-get($breakpointsPrefix, full) {
+    margin-left: -#{map-get($gridSpacing, full)};
+    width: calc(100% + #{map-get($gridSpacing, full)});
+    padding: 0 map-get($gridSpacing, full);
+  } @else if $colPrefix == map-get($breakpointsPrefix, md) {
+    margin-left: -#{map-get($gridSpacing, md)};
+    width: calc(100% + #{map-get($gridSpacing, md)});
+    padding: 0 map-get($gridSpacing, md);
+  }
+  > [class*="col_"] {
+    @if $colPrefix == map-get($breakpointsPrefix, full) {
+      padding-top: map-get($gridSpacing, full);
+      padding-left: map-get($gridSpacing, full);
+    } @else if $colPrefix == map-get($breakpointsPrefix, md) {
+      padding-top: map-get($gridSpacing, md);
+      padding-left: map-get($gridSpacing, md);
+    }
+  }
+}
+
+// Generate offset by margin-left
+@mixin generateOffset($columnNumber) {
+  @if $columnNumber == $gridColumns {
+    margin-left: 100%;
+  } @else if $columnNumber != $gridColumns and $columnNumber != 0 {
+    margin-left: calc(100% / (#{$gridColumns} / #{$columnNumber}) * 1%);
+  } @else if $columnNumber == 0 {
+    margin-left: 0;
+  }
+}
+
+// Generate classes for each breakpoints
+@mixin contentFlexboxGrid($colPrefix) {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+
+  // Classes next to container_row. Example:
+  // <div class="container_row row__between" />
+  @each $key, $value in $justifyContent {
+    &.row#{$colPrefix}__#{$key} {
+      justify-content: $value;
+    }
+  }
+
+  // <div class="container_row row_align__center" />
+  @each $key, $value in $alignItems {
+    &.row_align#{$colPrefix}__#{$key} {
+      align-items: $value;
+    }
+  }
+
+  // <div class="container_row rowWrap" />
+  &.row_wrap#{$colPrefix} {
+    flex-wrap: wrap;
+  }
+
+  // <div class="container_row rowNoWrap" />
+  &.row_noWrap#{$colPrefix} {
+    flex-wrap: nowrap;
+  }
+
+  // <div class="container_row rowBlock" />
+  // This stop flex properties and keep the width of the columns
+  &.row_block#{$colPrefix} {
+    display: block;
+  }
+
+  // To add spacing between columns
+  // <div class="container_row rowSpacing" />
+  &.row_spacing {
+    @include responsiveSpacing($colPrefix);
+  }
+
+  // Classes under container_row. Example:
+  // <div class="container_row" >
+  //   <div class="col_6 col_md_12" />
+  @for $i from 1 through $gridColumns {
+    .col#{$colPrefix}_#{$i} {
+      flex: 0 0 calculateWidth($i);
+      max-width: calculateWidth($i);
+    }
+  }
+
+  // <div class="container_row" >
+  //   <div class="col_offset_4" />
+  @for $i from 1 through $gridColumns {
+    .col_offset#{$colPrefix}_#{$i} {
+      @include generateOffset($i);
+    }
+  }
+
+  // <div class="container_row" >
+  //   <div class="col_align__center" />
+  @each $key, $value in $alignItems {
+    .col_align#{$colPrefix}__#{$key} {
+      align-self: $value;
+    }
+  }
+
+  // <div class="container_row" >
+  //   <div class="col_hidden" />
+  .col_hidden#{$colPrefix} {
+    display: none;
+  }
+
+  // <div class="container_row" >
+  //   <div class="col_show" />
+  .col_show#{$colPrefix} {
+    display: flex;
+  }
+}
+
+// Generate all classes for container_row
+@mixin respond-to($media) {
+  @if $media == full {
+    @include contentFlexboxGrid(map-get($breakpointsPrefix, full));
+  } @else if $media == md {
+    @media (max-width: map-get($breakpoints, md )) {
+      @include contentFlexboxGrid(map-get($breakpointsPrefix, md));
+    }
+  }
+}
+
+// Main classes of grid: container and container_row
+.container {
+  margin: 0 auto;
+  max-width: $maxWidth;
+  width: 100%;
+  &_row {
+    @include respond-to(full);
+    @include respond-to(md);
+  }
+}

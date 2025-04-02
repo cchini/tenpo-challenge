@@ -1,0 +1,41 @@
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixin";
+
+.input {
+  position: relative;
+  align-items: center;
+  display: flex;
+  gap: map-get($spacing, xxs);
+  width: 100%;
+  &_field {
+    @include box-style(gray-50, 0.25rem, gray-50);
+    @include font-style(14, gray-750, regular);
+    align-items: center;
+    display: flex;
+    height: 38px;
+    padding: 0.625rem map-get($spacing, xs);
+    width: 100%;
+    &::placeholder {
+      color: var(--tenpo-gray-500);
+    }
+  }
+}
+
+@media (max-width: map-get($breakpoints, md )) {
+  .input {
+    &_field {
+      height: 48px;
+      padding: map-get($spacing, md) map-get($spacing, xs);
+    }
+  }
+}
+
+@media (max-width: map-get($breakpoints, sm )) {
+  .input {
+    &_field {
+      @include font-style(16, gray-750, regular);
+      height: 50px;
+      padding: map-get($spacing, md) map-get($spacing, xs);
+    }
+  }
+}

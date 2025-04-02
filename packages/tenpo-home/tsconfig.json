@@ -1,0 +1,17 @@
+{
+  "extends": "ts-config-single-spa",
+  "compilerOptions": {
+    "lib": ["es2019", "dom"],
+    "jsx": "react-jsx",
+    "declaration": true,
+    "declarationDir": "dist",
+    "emitDeclarationOnly": true,
+    "paths": {
+      "@store/*": ["./src/store/*"]
+    }
+  },
+  "files": ["src/tenpo-home.tsx"],
+  "include": ["src/**/**/*"],
+  "exclude": ["src/**/*.test*"],
+  "plugins": [{ "name": "typescript-plugin-css-modules" }]
+}
