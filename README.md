@@ -104,6 +104,38 @@ Para acceder a la aplicación, puedes utilizar la siguiente ruta:
 -   **Crear usuario (home)**: [http://tenpo.localhost:9000/home/create](http://tenpo.localhost:9000/home/list)
     
 
+## Configuración del archivo de hosts 🌍
+
+Si no puedes acceder a la aplicación a través de `tenpo.localhost`, es posible que necesites configurar el archivo **hosts** de tu máquina para que apunte a `localhost`.
+
+### En sistemas **Linux** o **macOS**:
+
+1.  Abre el archivo `/etc/hosts` como superusuario. Puedes hacerlo con el siguiente comando:
+    
+    `sudo nano /etc/hosts` 
+    
+2.  Agrega la siguiente línea al final del archivo:
+    
+    `127.0.0.1 tenpo.localhost` 
+    
+3.  Guarda los cambios y cierra el archivo.
+    
+4.  Reinicia tu navegador para que los cambios tengan efecto.
+    
+
+### En **Windows**:
+
+1.  Abre el archivo `C:\Windows\System32\drivers\etc\hosts` con permisos de administrador en un editor de texto.
+    
+2.  Agrega la siguiente línea al final del archivo:
+    
+    `127.0.0.1 tenpo.localhost` 
+    
+3.  Guarda los cambios y cierra el archivo.
+    
+4.  Reinicia tu navegador para que los cambios tengan efecto.
+
+
 ----------
 
 # Roles de Usuario y Permisos Especiales 🔑
