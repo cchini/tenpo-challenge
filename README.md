@@ -153,3 +153,9 @@ El acceso a la aplicación se realiza con el siguiente usuario y password:
 ```
 
 Estas credenciales te permitirán ingresar al sistema.
+
+## Mejoras y Próximos Pasos 🚀
+
+Aunque la aplicación está funcional y cumple con todos los requisitos principales del desafío,  los tests con Jest no fueron implementados debido a limitaciones de tiempo. El enfoque principal estuvo en la estructura del proyecto, la correcta implementación de la arquitectura y la optimización de las llamadas al backend, así como en la integración de los diferentes microfrontends.
+
+Sin embargo, los tests unitarios y de integración son una parte fundamental de la solución y se pueden agregar fácilmente para garantizar una mayor cobertura y robustez en el proyecto.
