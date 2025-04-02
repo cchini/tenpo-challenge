@@ -31,11 +31,6 @@ Este proyecto busca ofrecer una demostración simple pero efectiva sobre cómo g
 Antes de empezar, asegúrate de tener instaladas las siguientes versiones:
 
 - **pnpm**: `v8.10.0`  
-  Instálalo o actualízalo con:
-  ```sh
-  npm install -g pnpm@8.10.0
-`
-
 - **Node.js**: `v20.17.0`  
 
 
@@ -49,23 +44,25 @@ Antes de empezar, asegúrate de tener instaladas las siguientes versiones:
     
     `pnpm install`
 
-3.   Levanta el **backend** simulando la API utilizando `stubby`:
+3.   Levanta el **backend** utilizando `stubby`:
 
  - Dirígete al directorio `tenpo-services`:
-        `cd packages/tenpo-services
-        pnpm run start:stubby` 
+  ```
+    cd packages/tenpo-services
+    pnpm run start:stubby` 
+  ```
         
 4.   Levanta el **frontend**:
     
   - Dirígete al directorio del frontend:
-        
-        `cd packages/tenpo-app
-        pnpm run start` 
-        
+  ```
+    cd packages/tenpo-app
+    pnpm run start
+  ```
     
-    Esto iniciará el servidor de desarrollo para el frontend.
+  - Esto iniciará el servidor de desarrollo para el frontend.
     
-    Para probar, selecciona las aplicaciones que deseas levantar, como `home`, `login`, y `header`. Se recomienda levantar las tres aplicaciones.
+  - Para probar, selecciona las aplicaciones que deseas levantar, como `home`, `login`, y `header`. Se recomienda levantar las tres aplicaciones.
 
 # Variables de Entorno 🌍
 
@@ -84,7 +81,7 @@ REACT_APP_COINGEKO_API=https://api.coingecko.com
 REACT_APP_RANDOM_USER_API=https://randomuser.me
 ```
 
-## tenpo-services
+## tenpo-states
 ```bash
 REACT_APP_SECRET_KEY=TENPO
 ```
@@ -125,8 +122,9 @@ Para otorgar acceso a esta ruta, puedes agregar el siguiente permiso:
 # Ingreso con Login 🔑
 
 El acceso a la aplicación se realiza con el siguiente usuario y password:
-
-`usuario: user@tenpo.cl
-contraseña: user1234` 
+```
+  usuario: user@tenpo.cl
+  contraseña: user1234
+```
 
 Estas credenciales te permitirán ingresar al sistema.
