@@ -44,7 +44,30 @@ Antes de empezar, asegúrate de tener instaladas las siguientes versiones:
     
     `pnpm install`
 
-3.   Levanta el **backend** utilizando `stubby`:
+
+3. Variables de Entorno 🌍
+
+    El proyecto requiere que se configuren algunas variables de entorno en los siguientes paquetes:
+    
+    ## tenpo-app
+    ```bash
+    HOST_DEV=tenpo.localhost
+    REACT_APP_IDENTITY_API=http://localhost:8200/identity.dev.tenpo.cl
+    ```
+    
+    ## tenpo-services
+    ```bash
+    REACT_APP_IDENTITY_API=http://localhost:8200/identity.dev.tenpo.cl
+    REACT_APP_COINGEKO_API=https://api.coingecko.com
+    REACT_APP_RANDOM_USER_API=https://randomuser.me
+    ```
+    
+    ## tenpo-states
+    ```bash
+    REACT_APP_SECRET_KEY=TENPO
+    ```
+    
+4.   Levanta el **backend** utilizando `stubby`:
 
  - Dirígete al directorio `tenpo-services`:
   ```
@@ -52,49 +75,19 @@ Antes de empezar, asegúrate de tener instaladas las siguientes versiones:
     pnpm run start:stubby` 
   ```
         
-4.   Levanta el **frontend**:
+5.   Levanta el **frontend**:
     
-  - Dirígete al directorio del frontend:
+  - Dirígete al directorio raíz del proyecto:
   ```
-    cd packages/tenpo-app
     pnpm run start
   ```
     
   - Esto iniciará el servidor de desarrollo para el frontend.
     
-  - Para probar, selecciona las aplicaciones que deseas levantar, como `home`, `login`, y `header`. Se recomienda levantar las tres aplicaciones.
-
-# Variables de Entorno 🌍
-
-El proyecto requiere que se configuren algunas variables de entorno en los siguientes paquetes:
-
-## tenpo-app
-```bash
-HOST_DEV=tenpo.localhost
-REACT_APP_IDENTITY_API=http://localhost:8200/identity.dev.tenpo.cl
-```
-
-## tenpo-services
-```bash
-REACT_APP_IDENTITY_API=http://localhost:8200/identity.dev.tenpo.cl
-REACT_APP_COINGEKO_API=https://api.coingecko.com
-REACT_APP_RANDOM_USER_API=https://randomuser.me
-```
-
-## tenpo-states
-```bash
-REACT_APP_SECRET_KEY=TENPO
-```
+  - Selecciona las aplicaciones que deseas levantar, como `home`, `login`, y `header`. (Se debn levantar las tres aplicaciones para este challenge).
 
 
-# Iniciar Proyecto en Desarrollo 🚀
-
-Para iniciar el proyecto en modo desarrollo, puedes ejecutar el siguiente comando:
-
-`pnpm start`
-
-
-# Rutas de Acceso 🛣️
+##  Rutas de Acceso 🛣️
 
 Para acceder a la aplicación, puedes utilizar la siguiente ruta:
 
@@ -138,7 +131,7 @@ Si no puedes acceder a la aplicación a través de `tenpo.localhost`, es posible
 
 ----------
 
-# Roles de Usuario y Permisos Especiales 🔑
+## Roles de Usuario y Permisos Especiales 🔑
 
 El sistema de permisos habilita funcionalidades dentro de la aplicación. Actualmente, el usuario tiene acceso solo a ciertas rutas. Puedes ver los permisos de un usuario en el archivo del stub:
 
@@ -151,7 +144,7 @@ Para otorgar acceso a esta ruta, puedes agregar el siguiente permiso:
 `"tenpo:home:create"`
 
 
-# Ingreso con Login 🔑
+## Ingreso con Login 🔑
 
 El acceso a la aplicación se realiza con el siguiente usuario y password:
 ```
